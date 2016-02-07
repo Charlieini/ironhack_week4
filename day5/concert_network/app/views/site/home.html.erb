@@ -1,0 +1,21 @@
+<h1>Concerts this month!</h1>
+<p>side bar</p>
+<div class="sidebar">
+    <% @concerts_this_month.each do |concert| %>
+      <li>
+        <%=concert.artist%>
+        <%= concert.date%>
+      </li>
+    <% end %>
+</div>
+
+<h2>Concerts Today!</h2>
+<ul>
+    <% @concerts_today.each do |concert| %>
+    <li>
+      <%= concert.artist %>
+      <%= concert.date %>
+      <%= link_to(concert.city,concert_path(concert)) %>
+    </li>
+    <%end%>
+</ul>

@@ -1,0 +1,13 @@
+<%= form_tag "/price", method: "get" do |f| %>
+  <%= label_tag :price, "search for:" %>
+  <%= number_field_tag :price %>
+  <br>
+  <%= submit_tag 'Search' %>
+<%end%>
+
+<% if @concerts %>
+  <% @concerts.each do |concert| %>
+  <p><%= link_to(concert.artist,concert_path(concert)) %></p>
+  <p><%= image_tag("#{concert.poster_url}", :size => "150x100")%></p>
+  <%end%>
+<%end%>

@@ -1,0 +1,11 @@
+<br>
+
+<ul>
+    <% @concerts.each do |concert| %>
+    <li>
+      <%= concert.artist %>
+      <%= link_to(City.find(concert.city_id).name,concert_path(concert)) %>
+      <%= image_tag("#{concert.poster_url}", :size => "100x75")%>
+    </li>
+    <%end%>
+</ul>

@@ -1,0 +1,11 @@
+<br>
+<h1>Most commented concerts!</h1>
+<ul>
+    <% @top_10_concerts.each do |concert| %>
+    <li>
+      <%= concert.artist %>
+      <%= "Nº of comments "%><%= concert.comments.length %>
+      <%= link_to(City.find(concert.city_id).name,concert_path(concert)) %>
+    </li>
+    <%end%>
+</ul>

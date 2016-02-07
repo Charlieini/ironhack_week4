@@ -1,0 +1,38 @@
+<p>Artist: <%=@concert.artist%> </p>
+<br>
+<p>Venue: <%=@concert.venue%> </p>
+<br>
+<p>City: <%=City.find(@concert.city_id).name%> </p>
+<br>
+<p>Date: <%=@concert.date%> </p>
+<br>
+<p>Price: <%=@concert.price%> </p>
+<br>
+<p>Description: <%=@concert.description%> </p>
+<br>
+<p>Poster</p>
+<br>
+<%= image_tag("#{@concert.poster_url}", :size => "260x180")%>
+<br>
+<p>Comments: </p>
+
+<ul>
+  <% @concert.comments.each do |comment| %>
+     <li>
+      <%= comment.content %>
+      </li>
+
+  <%end%>
+</ul>
+
+
+
+
+
+<%= form_for [@concert,@comment], url: concert_comments_path(@concert), method: "post" do |f| %>
+
+ <%= f.label :content%>
+ <%= f.text_field :content%>
+
+ <%= f.submit 'Add comment'%>
+<%end%>

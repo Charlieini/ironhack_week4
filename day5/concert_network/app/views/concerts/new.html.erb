@@ -1,0 +1,24 @@
+<%= form_for [@concert] do |f| %>
+  <%= f.label :artist%>
+  <%= f.text_field :artist%>
+  <br>
+  <%= f.label :venue%>
+  <%= f.text_field :venue%>
+  <br>
+  <%= f.label :city_id%>
+  <%= f.collection_select(:city_id, City.all, :id, :name) %>
+  <br>
+  <%= f.label :date%>
+  <%= f.date_field :date %>
+  <br>
+  <%= f.label :price%>
+  <%= f.number_field :price%>
+  <br>
+  <%= f.label :description%>
+  <%= f.text_field :description%>
+  <br>
+  <%= f.label :poster_url%>
+  <%= f.text_field :poster_url%>
+
+  <%= f.submit 'save' %>
+<%end%>
